@@ -33,7 +33,7 @@ public class MenuUser {
                     showMenuRegister();
                     break;
                 case 3:
-                    if(userManager.getCurrentUser()!=null){
+                    if (userManager.getCurrentUser() != null) {
                         mainMenu.MainMenu();
                     } else {
                         System.out.println("Bạn phải đăng nhập để truy cập!");
@@ -59,22 +59,22 @@ public class MenuUser {
         } while (choice != 0);
     }
 
-    public void showMenuRegister(){
+    public void showMenuRegister() {
         System.out.println("=====Đăng ký tài khoản=====");
         System.out.print("Nhập tên người dùng: ");
         String userName = inputString.nextLine();
         System.out.print("Nhập mật khẩu: ");
         String password = inputString.nextLine();
-        if(userManager.registerUser(userName, password)){
+        if (userManager.registerUser(userName, password)) {
             System.out.println("Đăng ký tài khoản thành công!");
         } else {
             System.out.println("Tên người dùng đã tồn tại!");
         }
     }
 
-    public void showMenuLogin(){
+    public void showMenuLogin() {
         System.out.println("=====Đăng nhập=====");
-        if(userManager.getAll().isEmpty()){
+        if (userManager.getAll().isEmpty()) {
             System.out.println("Hiện không có tài khoản!");
             return;
         }
@@ -82,7 +82,7 @@ public class MenuUser {
         String userName = inputString.nextLine();
         System.out.print("Nhập mật khẩu: ");
         String password = inputString.nextLine();
-        if(userManager.loginUser(userName,password)){
+        if (userManager.loginUser(userName, password)) {
             System.out.println("Đăng nhập thành công!");
             System.out.println("Tài khoản hiện tại: " + userName);
         } else {
@@ -90,17 +90,16 @@ public class MenuUser {
         }
     }
 
-    public void showAll(){
+    public void showAll() {
         System.out.println("=====Danh sách tài khoản=====");
         ArrayList<User> users = userManager.getAll();
-        for(User user: users){
+        for (User user : users) {
             System.out.println(user);
         }
     }
 
-    public void showCurrentUser(){
+    public void showCurrentUser() {
         System.out.println("Tài khoản đang đăng nhập");
         System.out.println(userManager.getUserInfo());
     }
-
 }
