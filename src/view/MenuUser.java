@@ -61,10 +61,16 @@ public class MenuUser {
 
     public void showMenuRegister() {
         System.out.println("=====Đăng ký tài khoản=====");
-        System.out.print("Nhập tên người dùng: ");
-        String userName = inputString.nextLine();
-        System.out.print("Nhập mật khẩu: ");
-        String password = inputString.nextLine();
+        String userName, password;
+        do{
+            System.out.print("Nhập tên người dùng: ");
+            userName = inputString.nextLine();
+            System.out.print("Nhập mật khẩu: ");
+            password = inputString.nextLine();
+            if(userName.isEmpty()||password.isEmpty()) {
+                System.out.println("Tên đăng nhập hoặc mật khẩu không được để trống!");
+            }
+        }while (userName.isEmpty()||password.isEmpty());
         if (userManager.registerUser(userName, password)) {
             System.out.println("Đăng ký tài khoản thành công!");
         } else {
