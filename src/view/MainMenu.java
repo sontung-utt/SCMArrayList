@@ -8,6 +8,7 @@ public class MainMenu {
     MenuStudent menuStudent = new MenuStudent();
     MenuSchool menuSchool = new MenuSchool();
     UserManager userManager = new UserManager();
+    MenuInput menuInput = new MenuInput();
     Scanner inputNumber = new Scanner(System.in);
 
     public void MainMenu(){
@@ -19,7 +20,7 @@ public class MainMenu {
             System.out.println("3. Quản lý trường học");
             System.out.println("0. Thoát chương trình!");
             System.out.print("Nhập lựa chọn: ");
-            choice = inputNumber.nextInt();
+            choice = menuInput.inputInteger();
             switch(choice){
                 case 1:
                     System.out.println(userManager.getUserInfo());

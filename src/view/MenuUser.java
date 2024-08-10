@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class MenuUser {
     UserManager userManager = new UserManager();
     MainMenu mainMenu = new MainMenu();
+    MenuInput menuInput = new MenuInput();
     Scanner inputNumber = new Scanner(System.in);
     Scanner inputString = new Scanner(System.in);
 
@@ -24,7 +25,7 @@ public class MenuUser {
             System.out.println("6. Tài khoản đang đăng nhập");
             System.out.println("0. Thoát chương trình");
             System.out.print("Nhập lựa chọn: ");
-            choice = inputNumber.nextInt();
+            choice = menuInput.inputInteger();
             switch (choice) {
                 case 1:
                     showMenuLogin();

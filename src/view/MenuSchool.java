@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class MenuSchool {
     SchoolManager schoolManager = new SchoolManager();
+    MenuInput menuInput = new MenuInput();
     Scanner inputString = new Scanner(System.in);
     Scanner inputNumber = new Scanner(System.in);
 
@@ -21,7 +22,7 @@ public class MenuSchool {
             System.out.println("4. Danh sách trường học");
             System.out.println("5. Tìm kiếm trường học theo tên gần đúng");
             System.out.print("Nhập lựa chọn: ");
-            choice = inputNumber.nextInt();
+            choice = menuInput.inputInteger();
             switch (choice) {
                 case 1:
                     showMenuAdd();
@@ -68,7 +69,7 @@ public class MenuSchool {
                 return;
             }
             System.out.print("Nhập mã trường học muốn sửa: ");
-            idUpdate = inputNumber.nextInt();
+            idUpdate = menuInput.inputInteger();
             if (schoolManager.findById(idUpdate) == -1) {
                 System.out.println("Mã trường học không tồn tại! Yêu cầu nhập lại");
             }
@@ -87,7 +88,7 @@ public class MenuSchool {
         int idRemove;
 
         System.out.print("Nhập mã trường học muốn xóa: ");
-        idRemove = inputNumber.nextInt();
+        idRemove = menuInput.inputInteger();
         if (schoolManager.findById(idRemove) == -1) {
             System.out.println("Mã trường học không tồn tại!");
         } else {

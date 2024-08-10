@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class MenuStudent {
     StudentManager studentManager = new StudentManager();
+    MenuInput menuInput = new MenuInput();
     Scanner inputString = new Scanner(System.in);
     Scanner inputNumber = new Scanner(System.in);
     public void MenuStudent() {
@@ -23,7 +24,7 @@ public class MenuStudent {
             System.out.println("7. Tìm kiếm sinh viên theo khoảng tuổi");
             System.out.println("0. Thoát chương trình");
             System.out.print("Nhập lựa chọn: ");
-            choice = inputNumber.nextInt();
+            choice = menuInput.inputInteger();
             switch (choice) {
                 case 1:
                     showMenuAdd();
@@ -61,13 +62,13 @@ public class MenuStudent {
         System.out.print("Nhập tên sinh viên: ");
         String name = inputString.nextLine();
         System.out.print("Nhập tuổi sinh viên: ");
-        int age = inputNumber.nextInt();
+        int age = menuInput.inputInteger();
         System.out.println("Nhập điểm sinh viên");
         double[] marks = new double[3];
         for(int i = 0; i<marks.length; i++){
             do {
                 System.out.print("Nhập điểm thứ " + (i + 1) + ": ");
-                marks[i] = inputNumber.nextDouble();
+                marks[i] = menuInput.inputDouble();
                 if (marks[i] < 0 || marks[i] > 10) {
                     System.out.println("Điểm thứ " + (i + 1) + " không hợp lệ. Yêu cầu nhập lại!");
                 }
@@ -89,7 +90,7 @@ public class MenuStudent {
         System.out.println("=====Xóa sinh viên=====");
         int idRemove;
         System.out.print("Nhập mã sinh viên muốn xóa: ");
-        idRemove = inputNumber.nextInt();
+        idRemove = menuInput.inputInteger();
         if(studentManager.findById(idRemove)==-1){
             System.out.println("Mã sinh viên không tồn tại!");
         } else {
@@ -107,7 +108,7 @@ public class MenuStudent {
                 return;
             }
             System.out.print("Nhập mã sinh viên muốn sửa: ");
-            idUpdate = inputNumber.nextInt();
+            idUpdate = menuInput.inputInteger();
             if(studentManager.findById(idUpdate)==-1){
                 System.out.println("Mã sinh viên không tồn tại! Yêu cầu nhập lại.");
             }
@@ -115,13 +116,13 @@ public class MenuStudent {
         System.out.print("Nhập tên sinh viên: ");
         String name = inputString.nextLine();
         System.out.print("Nhập tuổi sinh viên: ");
-        int age = inputNumber.nextInt();
+        int age = menuInput.inputInteger();
         System.out.println("Nhập điểm sinh viên");
         double[] marks = new double[3];
         for(int i = 0; i<marks.length; i++){
             do {
                 System.out.print("Nhập điểm thứ " + (i + 1) + ": ");
-                marks[i] = inputNumber.nextDouble();
+                marks[i] = menuInput.inputDouble();
                 if (marks[i] < 0 || marks[i] > 10) {
                     System.out.println("Điểm thứ " + (i + 1) + " không hợp lệ. Yêu cầu nhập lại!");
                 }
@@ -154,14 +155,14 @@ public class MenuStudent {
         do{
             do{
                 System.out.print("Nhập điểm trung bình bé nhất: ");
-                minMark = inputNumber.nextDouble();
+                minMark = menuInput.inputDouble();
                 if(minMark < 0 || minMark > 10){
                     System.out.println("Điểm không hợp lệ! Yêu cầu nhập lại.");
                 }
             }while (minMark < 0 || minMark > 10);
             do{
                 System.out.print("Nhập điểm trung bình lớn nhất: ");
-                maxMark = inputNumber.nextDouble();
+                maxMark = menuInput.inputDouble();
                 if(maxMark < 0 || maxMark > 10){
                     System.out.println("Điểm không hợp lệ! Yêu cầu nhập lại.");
                 }
@@ -187,9 +188,9 @@ public class MenuStudent {
         int minAge, maxAge;
         do{
             System.out.print("Nhập tuổi bé nhất: ");
-            minAge= inputNumber.nextInt();
+            minAge= menuInput.inputInteger();
             System.out.print("Nhập tuổi lớn nhất: ");
-            maxAge= inputNumber.nextInt();
+            maxAge= menuInput.inputInteger();
             if(minAge > maxAge){
                 System.out.println("Nhập tuổi không hợp lệ! Yêu cầu nhập lại.");
             }
